@@ -1,5 +1,6 @@
 package com.example.skillblogassemble.presenter.controller
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import com.example.skillblogassemble.R
+import com.example.skillblogassemble.WebViewActivity
 import com.example.skillblogassemble.presenter.HomeViewModel
 import com.example.skillblogassemble.presenter.SliderTransformer
 import com.example.skillblogassemble.presenter.ViewPagerAdapter
@@ -54,6 +56,8 @@ class HomeFragment : Fragment() {
         adapter.setOnItemClickListener(object : ViewPagerAdapter.OnItemClickListener{
             override fun onItemClick(v: View?, position: Int) {
                 Log.d("click event", "${position}번 리스트 선택")
+                val intent = Intent(activity, WebViewActivity::class.java)
+                startActivity(intent)
             }
         })
         return view
