@@ -37,7 +37,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:adjustViewBounds="true"
                 android:background="@color/transparent"
-                android:alpha="0.1"
+                android:alpha="0.2"
 
                 android:scaleType="fitXY"
                 android:src="@drawable/naver" />

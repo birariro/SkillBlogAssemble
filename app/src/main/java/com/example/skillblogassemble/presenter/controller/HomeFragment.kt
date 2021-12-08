@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.skillblogassemble.R
 import com.example.skillblogassemble.WebViewActivity
@@ -52,6 +53,9 @@ class HomeFragment : Fragment() {
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = 3
         viewPager.setPageTransformer(SliderTransformer(3))
+
+        //viewpager2 양쪽 끝 이벤트 제거
+        viewPager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER;
 
         adapter.setOnItemClickListener(object : ViewPagerAdapter.OnItemClickListener{
             override fun onItemClick(v: View?, position: Int) {
