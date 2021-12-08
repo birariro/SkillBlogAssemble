@@ -1,17 +1,13 @@
 package com.example.skillblogassemble.presenter
 
 
-import android.content.Context
-import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.constraintlayout.widget.ConstraintLayout
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.skillblogassemble.R
@@ -50,9 +46,9 @@ class ViewPagerAdapter(private val items:List<BlogItem>) : RecyclerView.Adapter<
         val drawable = ((holder.item_ground.background ).mutate().constantState?.newDrawable()) as GradientDrawable
 
         drawable.colors = intArrayOf(
-            items[position].Color + 0x46,
-            items[position].Color + 0x24,
-            items[position].Color
+            items[position].color + 0x46,
+            items[position].color + 0x24,
+            items[position].color
         )
         holder.item_ground.background = drawable
         holder.item_company.text = items[position].company

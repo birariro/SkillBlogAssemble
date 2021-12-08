@@ -4,5 +4,6 @@ data class BlogItem(
     val company:String,
     val title : String,
     val content : String,
-    val Color : Int
+    val color : Int,
+    val link : String
 )

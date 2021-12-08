@@ -57,6 +57,7 @@ class HomeFragment : Fragment() {
             override fun onItemClick(v: View?, position: Int) {
                 Log.d("click event", "${position}번 리스트 선택")
                 val intent = Intent(activity, WebViewActivity::class.java)
+                intent.putExtra("url",items[position].link)
                 startActivity(intent)
             }
         })
