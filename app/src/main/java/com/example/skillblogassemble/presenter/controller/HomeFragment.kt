@@ -1,6 +1,7 @@
 package com.example.skillblogassemble.presenter.controller
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -49,6 +50,12 @@ class HomeFragment : Fragment() {
         viewPager.adapter = adapter
         viewPager.offscreenPageLimit = 3
         viewPager.setPageTransformer(SliderTransformer(3))
+
+        adapter.setOnItemClickListener(object : ViewPagerAdapter.OnItemClickListener{
+            override fun onItemClick(v: View?, position: Int) {
+                Log.d("click event", "${position}번 리스트 선택")
+            }
+        })
         return view
     }
 

@@ -18,16 +18,25 @@ import com.example.skillblogassemble.R
 import com.example.skillblogassemble.domain.model.BlogItem
 
 class ViewPagerAdapter(private val items:List<BlogItem>) : RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>() {
-    inner class ViewPagerHolder(var view : View) : RecyclerView.ViewHolder(view){
+    private var mListener: OnItemClickListener? = null
+
+    fun setOnItemClickListener(listener: OnItemClickListener?) {
+        mListener = listener
+    }
+    inner class ViewPagerHolder(view : View) : RecyclerView.ViewHolder(view){
+
         var item_ground : LinearLayout = view.findViewById(R.id.item_ground)
         var item_company : TextView = view.findViewById(R.id.item_company)
         var item_title : TextView = view.findViewById(R.id.item_title)
         var item_context : TextView = view.findViewById(R.id.item_context)
         var item_icon : ImageView = view.findViewById(R.id.item_icon)
+
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewPagerAdapter.ViewPagerHolder {
         var view = LayoutInflater.from(parent.context).inflate(R.layout.viewpager_item,parent,false)
+
         return ViewPagerHolder(view)
     }
 
@@ -50,5 +59,12 @@ class ViewPagerAdapter(private val items:List<BlogItem>) : RecyclerView.Adapter<
         holder.item_title.text = items[position].title
         holder.item_context.text = items[position].content
 
+        holder.itemView.setOnClickListener {
+            mListener?.onItemClick(it,position)
+        }
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(v: View?, position: Int)
     }
 }
