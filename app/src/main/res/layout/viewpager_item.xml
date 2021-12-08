@@ -3,54 +3,94 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/item_ground"
-    >
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/round">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:background="@color/white"
-        android:layout_margin="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:id="@+id/item_ground"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="W,3.5:3"
+        android:background="@drawable/top_round">
 
-        <TextView
-            android:id="@+id/item_company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test"
-            android:textSize="20sp"
-            app:layout_constraintTop_toTopOf="parent"
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="15dp"
-            />
+            app:layout_constraintEnd_toEndOf="parent"
+            >
 
-        <TextView
-            android:id="@+id/item_title"
-            app:layout_constraintTop_toBottomOf="@+id/item_company"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test"
-            android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/item_company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="NAVER"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                />
 
-        <TextView
-            android:id="@+id/item_context"
-            app:layout_constraintTop_toBottomOf="@+id/item_title"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="test"
-            android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="90dp"
+                android:paddingTop="25dp"
+                tools:text="플러터 적용해본 후기"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_company" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/item_context"
+                app:layout_constraintTop_toBottomOf="@+id/item_title"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:textSize="15sp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_ground"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="53dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="true"
+            android:background="@color/transparent"
+            android:maxWidth="150dp"
+            android:maxHeight="150dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_sample" />
+
+    </LinearLayout>
+
 
 
 
