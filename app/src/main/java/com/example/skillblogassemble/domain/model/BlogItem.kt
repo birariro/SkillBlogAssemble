@@ -5,5 +5,6 @@ data class BlogItem(
     val title : String,
     val content : String,
     val color : Int,
+    val iconId : Int,
     val link : String
 )

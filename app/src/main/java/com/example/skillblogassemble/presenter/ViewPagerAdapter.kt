@@ -46,8 +46,8 @@ class ViewPagerAdapter(private val items:List<BlogItem>) : RecyclerView.Adapter<
         val drawable = ((holder.item_ground.background ).mutate().constantState?.newDrawable()) as GradientDrawable
 
         drawable.colors = intArrayOf(
+            items[position].color + 0x68,
             items[position].color + 0x46,
-            items[position].color + 0x24,
             items[position].color
         )
         holder.item_ground.background = drawable
@@ -58,6 +58,7 @@ class ViewPagerAdapter(private val items:List<BlogItem>) : RecyclerView.Adapter<
         holder.itemView.setOnClickListener {
             mListener?.onItemClick(it,position)
         }
+        holder.item_icon.setImageResource(items[position].iconId)
     }
 
     interface OnItemClickListener {
