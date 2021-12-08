@@ -9,10 +9,10 @@ class HomeViewModel: ViewModel() {
 
     fun getViewPagerDataList() : ArrayList<BlogItem>{
         val dataList = ArrayList<BlogItem>().apply {
-            add(BlogItem("naver","플러터 사용기","할만했다" ,  Color.parseColor("#1DDB16")))
-            add(BlogItem("쿠팡","쿠팡 뭔가를 함","뭔가를 했다" ,  Color.parseColor("#FF0000")))
-            add(BlogItem("페이스북","페이스북 이름 바꿈","블록체인" ,  Color.parseColor("#0054FF")))
-            add(BlogItem("당근마켓","당근 근처 있음","이름 이유" ,  Color.parseColor("#FF5E00")))
+            add(BlogItem("Naver","지식iN 앱을 Flutter로 개발하는 이유","할만했다" ,  Color.parseColor("#0DC75B")))
+            add(BlogItem("Coupang","QA testing for microservices","왜 영어?" ,  Color.parseColor("#A2180B")))
+            add(BlogItem("우아한 형제들","외부 시스템 장애에 대처하는 우리의 자세","좋은 자세" ,  Color.parseColor("#28B8B3")))
+            add(BlogItem("당근마켓","모듈화하고 Needle 적용해보기","당신 근처" ,  Color.parseColor("#F27B31")))
         }
         return dataList
     }

@@ -50,8 +50,8 @@ class ViewPagerAdapter(private val items:List<BlogItem>) : RecyclerView.Adapter<
         val drawable = ((holder.item_ground.background ).mutate().constantState?.newDrawable()) as GradientDrawable
 
         drawable.colors = intArrayOf(
-            items[position].Color + 100,
-            items[position].Color + 50,
+            items[position].Color + 0x46,
+            items[position].Color + 0x24,
             items[position].Color
         )
         holder.item_ground.background = drawable
