@@ -20,13 +20,13 @@ class BlogService {
             val feedUrl = URL(rssUrl)
             val input = SyndFeedInput()
             var feed: SyndFeed = input.build(XmlReader(feedUrl))
-            System.out.println("RSS title: " + feed.getTitle())
-            System.out.println("RSS author: " + feed.getAuthor())
-            val entries: List<*> = feed.getEntries()
+            System.out.println("RSS title: " + feed.title)
+            System.out.println("RSS author: " + feed.author)
+            val entries: List<SyndEntry> = feed.entries
             for (i in entries.indices) {
-                val entry: SyndEntry = entries[i] as SyndEntry
+                val entry: SyndEntry = entries[i]
                 //                System.out.println("--- Entry " + i);
-                System.out.println(entry.getTitle())
+                System.out.println(entry.title)
                 //                System.out.println(entry.getAuthor());
 //                System.out.println(entry.getDescription().getValue());
 //                System.out.println(entry.getLink());
