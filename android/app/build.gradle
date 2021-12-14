@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+
 }
 
 android {
@@ -51,4 +54,14 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     //viewPager2
     implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    //hilt
+    implementation "com.google.dagger:hilt-android:${hiltVersion}"
+    kapt "com.google.dagger:hilt-compiler:${hiltVersion}"
+
+    //m1 hilt 문제 해결
+    def roomVersion = "2.3.0"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+    kapt("org.xerial:sqlite-jdbc:3.34.0")
 }

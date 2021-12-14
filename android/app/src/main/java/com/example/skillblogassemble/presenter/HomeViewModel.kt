@@ -4,8 +4,11 @@ import android.graphics.Color
 import androidx.lifecycle.ViewModel
 import com.example.skillblogassemble.R
 import com.example.skillblogassemble.domain.model.BlogItem
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class HomeViewModel: ViewModel() {
+@HiltViewModel
+class HomeViewModel @Inject constructor(): ViewModel() {
 
 
     fun getViewPagerDataList() : ArrayList<BlogItem>{
