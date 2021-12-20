@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/round">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:id="@+id/item_ground"
@@ -13,10 +12,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/round"
         >
         
 <!--아래 레이어
-        android:background="@drawable/round"
         android:layout_height="0dp"
         app:layout_constraintDimensionRatio="W,3.5:3"
 -->

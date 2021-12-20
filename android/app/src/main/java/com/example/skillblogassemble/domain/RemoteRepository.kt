@@ -2,7 +2,9 @@ package com.example.skillblogassemble.domain
 
 import android.graphics.Color
 import com.example.skillblogassemble.R
+import com.example.skillblogassemble.domain.datasource.SampleDataSource
 import com.example.skillblogassemble.domain.model.BlogItem
+import com.example.skillblogassemble.domain.model.SampleEntity
 
 class RemoteRepository {
 
@@ -46,7 +48,8 @@ class RemoteRepository {
         }
         return dataList
     }
-    fun hello() : String {
-        return "hello!"
+
+    suspend fun getSampleAPI() : SampleEntity {
+        return RetrofitClient.getInstance().create(SampleDataSource::class.java).getEntity()
     }
 }
