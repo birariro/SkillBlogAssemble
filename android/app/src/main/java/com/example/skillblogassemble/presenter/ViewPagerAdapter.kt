@@ -14,11 +14,10 @@ import com.example.skillblogassemble.R
 import com.example.skillblogassemble.domain.model.BlogItem
 
 class ViewPagerAdapter(private val items:List<BlogItem>) : RecyclerView.Adapter<ViewPagerAdapter.ViewPagerHolder>() {
-    private var mListener: OnItemClickListener? = null
 
-    fun setOnItemClickListener(listener: OnItemClickListener?) {
-        mListener = listener
-    }
+
+    var onItemClickListener : ((Int)-> Unit)? = null
+
     inner class ViewPagerHolder(view : View) : RecyclerView.ViewHolder(view){
 
         var item_ground : LinearLayout = view.findViewById(R.id.item_ground)
@@ -56,12 +55,10 @@ class ViewPagerAdapter(private val items:List<BlogItem>) : RecyclerView.Adapter<
         holder.item_context.text = items[position].content
 
         holder.itemView.setOnClickListener {
-            mListener?.onItemClick(it,position)
+            this.onItemClickListener?.invoke(position)
+
         }
         holder.item_icon.setImageResource(items[position].iconId)
     }
 
-    interface OnItemClickListener {
-        fun onItemClick(v: View?, position: Int)
-    }
 }

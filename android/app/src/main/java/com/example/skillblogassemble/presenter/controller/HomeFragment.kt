@@ -63,14 +63,12 @@ class HomeFragment : Fragment() {
         //viewpager2 양쪽 끝 이벤트 제거
         viewPager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER;
 
-        adapter.setOnItemClickListener(object : ViewPagerAdapter.OnItemClickListener{
-            override fun onItemClick(v: View?, position: Int) {
-                Log.d("click event", "${position}번 리스트 선택")
-                val intent = Intent(activity, WebViewActivity::class.java)
-                intent.putExtra("url",items[position].link)
-                startActivity(intent)
-            }
-        })
+        adapter.onItemClickListener = { position ->
+            Log.d("click event", "${position}번 리스트 선택")
+            val intent = Intent(activity, WebViewActivity::class.java)
+            intent.putExtra("url",items[position].link)
+            startActivity(intent)
+        }
         return view
     }
 
