@@ -3,16 +3,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presenter.controller.HomeFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presenter.controller.HomeFragment"
+    >
 
-
+    <TextView
+        android:id="@+id/sub_title_text_view"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20sp"
+        android:text="ToDay"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/title_text_view"
+        android:layout_marginStart="20sp"
+        android:text="Last Skill Blog List"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/sub_title_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
+        app:layout_constraintTop_toBottomOf="@id/title_text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="200dp"
         android:layout_marginStart="50dp"
         android:paddingEnd="50dp"
         android:clipChildren="false"

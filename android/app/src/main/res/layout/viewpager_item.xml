@@ -4,91 +4,105 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-
     <LinearLayout
         android:id="@+id/item_ground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/round"
-        >
-        
-<!--아래 레이어
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="W,3.5:3"
--->
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/round">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-
-            android:layout_margin="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <LinearLayout
+            android:background="@drawable/sub_round"
+            android:layout_margin="5dp"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+
             >
 
-            <ImageView
-                android:id="@+id/item_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+            <!--아래 레이어
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="W,3.5:3"
+            -->
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:adjustViewBounds="true"
-                android:background="@color/transparent"
-                android:alpha="0.2"
-
-                android:scaleType="fitXY"
-                android:src="@drawable/naver" />
-
-            <TextView
-                android:id="@+id/item_company"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="NAVER"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="15dp"
-                />
-
-            <TextView
-                android:id="@+id/item_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:layout_marginTop="90dp"
-                android:paddingTop="25dp"
-                tools:text="플러터 적용해본 후기"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/item_company" />
+                >
 
-            <TextView
-                android:id="@+id/item_context"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginBottom="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="test"
-                android:textSize="15sp"/>
+                <ImageView
+                    android:id="@+id/item_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:adjustViewBounds="true"
+                    android:background="@color/transparent"
+                    android:alpha="0.2"
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:scaleType="fitXY"
+                    android:src="@drawable/naver" />
+
+                <TextView
+                    android:id="@+id/item_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="NAVER"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="15dp"
+                    />
+
+                <TextView
+                    android:id="@+id/item_title"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="25dp"
+                    android:gravity="center"
+                    tools:text="플러터 적용해본 후기"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/item_company"
+                    app:layout_constraintBottom_toTopOf="@id/item_context"/>
+
+                <TextView
+                    android:id="@+id/item_context"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="test"
+                    android:textSize="15sp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
     </LinearLayout>
+
 <!-- 아래 레이어
     <LinearLayout
         android:layout_width="match_parent"
