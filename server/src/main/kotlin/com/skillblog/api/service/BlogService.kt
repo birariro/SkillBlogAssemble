@@ -8,16 +8,19 @@ import com.rometools.rome.io.XmlReader
 import com.skillblog.api.controller.dto.BlogItemResponse
 import org.springframework.stereotype.Service
 import java.io.IOException
+import java.net.URI
 import java.net.URL
-
+import java.net.http.HttpClient
+import java.net.http.HttpRequest
+import java.net.http.HttpResponse
 
 
 @Service
 class BlogService {
 
-    fun getBlogData(company: String , rssUrl:String) : BlogItemResponse{
+    fun getBlogData(company: String , rssUrl:String) : List<BlogItemResponse>{
         val rssUrl = rssUrl
-
+        var result  = mutableListOf<BlogItemResponse>()
         try {
             val feedUrl = URL(rssUrl)
             val input = SyndFeedInput()
@@ -36,14 +39,15 @@ class BlogService {
                 println("entry.comments > "+entry.comments)
                 println("entry.publishedDate > "+entry.publishedDate) //업로드 날짜
                 //println("entry.contents > "+entry.contents) //본문 내용
-
+                val imageUrl = getContentsImage(entry.link,entry.contents)
+                println("imageUrle > "+imageUrl) //이미지
                 var item = BlogItemResponse(company = company,
                         title = entry.title,
                         description = entry.description.value,
                         author = entry.author,
                         link = entry.link,
                         data = entry.publishedDate)
-                return item
+                result.add(item)
             }
         } catch (e: IllegalArgumentException) {
             // ...
@@ -52,14 +56,38 @@ class BlogService {
         }  catch (e: IOException){
 
         }
-        throw Exception()
+        return result
+    }
+    private fun getContentsImage(link:String, contents:List<com.rometools.rome.feed.synd.SyndContent>) : String{
+        //todo 예외처리 하셈
+        if(contents.isEmpty()){
+            // todo 안의 내용이없는경우 url로 접근해서 이미지를 가지고와야한다.
+            val client = HttpClient.newBuilder().build();
+            val request = HttpRequest.newBuilder()
+                    .uri(URI.create(link))
+                    .build()
+            val response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            return getImageUrl(response.body())
+        }
+        // contents 안의 이미지를 파싱한다.
+        for (content in contents){
+            return getImageUrl(content.value)
+        }
+        return ""
+    }
+    private fun getImageUrl(content:String) : String{
+        val targetChar = "img src=\""
+        val startIndex = content.indexOf(targetChar) + targetChar.length
+        val endIndex = content.indexOf("\"", startIndex)
+        val result = content.substring(startIndex, endIndex)
+        return result
     }
     fun test() {
         getBlogData("배달의 민족","https://techblog.woowahan.com/feed/") //배민
 
         println("END END ")
-        getBlogData("카카오","https://tech.kakao.com/feed/") //카카오
-
+        //getBlogData("카카오","https://tech.kakao.com/feed/") //카카오
 
     }
 }

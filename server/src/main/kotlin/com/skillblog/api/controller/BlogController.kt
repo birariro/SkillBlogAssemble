@@ -14,12 +14,12 @@ class BlogController {
 
     @GetMapping("blog-item")
     fun getBlogItemList() : List<BlogItemResponse> {
-        var dataList = mutableListOf<BlogItemResponse>().apply {
-            add( BlogItemResponse("k4keye","k4keye hello","world"))
-            add( BlogItemResponse("k4keye","k4keye hello","world"))
-            add( BlogItemResponse("k4keye","k4keye hello","world"))
-        }
+//        var dataList = mutableListOf<BlogItemResponse>().apply {
+//            add( BlogItemResponse("k4keye","k4keye hello","world"))
+//            add( BlogItemResponse("k4keye","k4keye hello","world"))
+//            add( BlogItemResponse("k4keye","k4keye hello","world"))
+//        }
         blogService.test()
-        return dataList
+        return mutableListOf<BlogItemResponse>()
     }
 }
