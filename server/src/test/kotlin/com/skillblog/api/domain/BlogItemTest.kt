@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import java.util.*
+import javax.persistence.Transient
 
 @DataJpaTest
 @ExtendWith(SpringExtension::class)
@@ -16,6 +17,7 @@ internal class BlogItemTest {
     lateinit var blogItemRepo :BlogItemRepo
 
     @Test
+    @Transient
     fun `객체를 저장하고 출력해본다` () {
         var blogitem = BlogItem(id = 0L,"titleSample", description = "decSample", author = "authorSample",link = "linkSample" ,date = Date() )
         var blogitem2 = BlogItem(id = 0L,"titleSample2", description = "decSample2", author = "authorSample2",link = "linkSample2" ,date = Date() )
