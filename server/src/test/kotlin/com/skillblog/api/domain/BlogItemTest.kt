@@ -16,11 +16,12 @@ internal class BlogItemTest {
     @Autowired
     lateinit var blogItemRepo :BlogItemRepo
 
+
     @Test
     @Transient
     fun `객체를 저장하고 출력해본다` () {
-        var blogitem = BlogItem(id = 0L,"titleSample", description = "decSample", author = "authorSample",link = "linkSample" ,date = Date() )
-        var blogitem2 = BlogItem(id = 0L,"titleSample2", description = "decSample2", author = "authorSample2",link = "linkSample2" ,date = Date() )
+        var blogitem = BlogItem(id = 0L,"titleSample", description = "decSample", author = "authorSample",link = "linkSample" ,date = Date() ,imageLink = "")
+        var blogitem2 = BlogItem(id = 0L,"titleSample2", description = "decSample2", author = "authorSample2",link = "linkSample2" ,date = Date() ,imageLink = "")
 
         blogItemRepo.save(blogitem)
         blogItemRepo.save(blogitem2)
@@ -31,5 +32,6 @@ internal class BlogItemTest {
         Assertions.assertEquals(blogitem2.title,findAll.get(1).title)
 
     }
+
 
 }

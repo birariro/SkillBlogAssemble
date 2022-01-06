@@ -16,6 +16,8 @@ class BlogItem(
         @Column(columnDefinition = "TEXT", nullable = false)
         val description: String,
         val author: String,
+        @Column(columnDefinition = "TEXT", nullable = false)
+        val imageLink: String,
         val link: String,
         val date: Date
 )

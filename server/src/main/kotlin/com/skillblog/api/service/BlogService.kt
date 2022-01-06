@@ -6,6 +6,7 @@ import com.rometools.rome.io.FeedException
 import com.rometools.rome.io.SyndFeedInput
 import com.rometools.rome.io.XmlReader
 import com.skillblog.api.controller.dto.BlogItemResponse
+import com.skillblog.api.domain.BlogItem
 import org.springframework.stereotype.Service
 import java.io.IOException
 import java.net.URI
@@ -18,9 +19,9 @@ import java.net.http.HttpResponse
 @Service
 class BlogService {
 
-    fun getBlogData(company: String , rssUrl:String) : List<BlogItemResponse>{
+    fun getBlogData(company: String , rssUrl:String) : List<BlogItem>{
         val rssUrl = rssUrl
-        var result  = mutableListOf<BlogItemResponse>()
+        var result  = mutableListOf<BlogItem>()
         try {
             val feedUrl = URL(rssUrl)
             val input = SyndFeedInput()
@@ -31,23 +32,26 @@ class BlogService {
             for (i in entries.indices) {
                 val entry: SyndEntry = entries[i]
                 //                System.out.println("--- Entry " + i);
-                println("title > "+entry.title) //제목
-                println("author > "+entry.author) //작성자
-                println("description.value > "+entry.description.value) //본문 내용 조금
-                println("entry.link > "+entry.link) //링크
+              //  println("title > "+entry.title) //제목
+               // println("author > "+entry.author) //작성자
+               // println("description.value > "+entry.description.value) //본문 내용 조금
+               // println("entry.link > "+entry.link) //링크
                 //println("entry.categories > "+entry.categories)
-                println("entry.comments > "+entry.comments)
-                println("entry.publishedDate > "+entry.publishedDate) //업로드 날짜
+               // println("entry.comments > "+entry.comments)
+               // println("entry.publishedDate > "+entry.publishedDate) //업로드 날짜
                 //println("entry.contents > "+entry.contents) //본문 내용
                 val imageUrl = getContentsImage(entry.link,entry.contents)
-                println("imageUrle > "+imageUrl) //이미지
-                var item = BlogItemResponse(company = company,
-                        title = entry.title,
-                        description = entry.description.value,
-                        author = entry.author,
-                        link = entry.link,
-                        data = entry.publishedDate)
-                result.add(item)
+                //println("imageUrle > "+imageUrl) //이미지
+
+                var blogItem = BlogItem(id = 0L,title = entry.title,description = entry.description.value,
+                author = entry.author,link = entry.link,date = entry.publishedDate,imageLink = imageUrl)
+//                var item = BlogItemResponse(company = company,
+//                        title = entry.title,
+//                        description = entry.description.value,
+//                        author = entry.author,
+//                        link = entry.link,
+//                        data = entry.publishedDate)
+                result.add(blogItem)
             }
         } catch (e: IllegalArgumentException) {
             // ...
