@@ -13,6 +13,7 @@ import java.net.URL
 import java.net.http.HttpClient
 import java.net.http.HttpRequest
 import java.net.http.HttpResponse
+import java.util.*
 
 
 @Service
@@ -39,11 +40,18 @@ class BlogService {
                // println("entry.comments > "+entry.comments)
                // println("entry.publishedDate > "+entry.publishedDate) //업로드 날짜
                 //println("entry.contents > "+entry.contents) //본문 내용
-                val imageUrl = getContentsImage(entry.link,entry.contents)
-                //println("imageUrle > "+imageUrl) //이미지
 
-                var blogEntity = BlogEntity(id = 0L,title = entry.title,description = entry.description.value,
-                author = entry.author,link = entry.link,date = entry.publishedDate,imageLink = imageUrl)
+                //println("imageUrle > "+imageUrl) //이미지
+                val title = entry.title
+                val description = entry?.description?.value ?: ""
+
+                val author = entry.author
+                val link = entry.link
+                val date = entry.publishedDate ?: Date()
+                val imageUrl = getContentsImage(entry.link,entry.contents)
+
+                var blogEntity = BlogEntity(id = 0L,title =title,description = description,
+                author = author,link =link ,date = date,imageLink = imageUrl)
 //                var item = BlogItemResponse(company = company,
 //                        title = entry.title,
 //                        description = entry.description.value,
@@ -80,11 +88,16 @@ class BlogService {
         return ""
     }
     private fun getImageUrl(content:String) : String{
-        val targetChar = "img src=\""
-        val startIndex = content.indexOf(targetChar) + targetChar.length
-        val endIndex = content.indexOf("\"", startIndex)
-        val result = content.substring(startIndex, endIndex)
-        return result
+        return try{
+            val targetChar = "img src=\""
+            val startIndex = content.indexOf(targetChar) + targetChar.length
+            val endIndex = content.indexOf("\"", startIndex)
+            val result = content.substring(startIndex, endIndex)
+            result
+        }catch (e:Exception){
+            ""
+        }
+
     }
     fun test() {
         getBlogData("배달의 민족","https://techblog.woowahan.com/feed/") //배민
