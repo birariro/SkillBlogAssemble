@@ -1,15 +1,11 @@
 package com.skillblog.api.service
 
-import com.skillblog.api.domain.BlogItemRepo
-import com.skillblog.api.domain.RssEntity
+import com.skillblog.api.domain.blog.BlogRepo
+import com.skillblog.api.domain.rss.RssEntity
 import org.junit.jupiter.api.Test
 
-import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.junit.jupiter.SpringExtension
 import javax.persistence.Transient
 
 @SpringBootTest
@@ -18,7 +14,7 @@ internal class BlogServiceTest {
     @Autowired
     lateinit var blogService: BlogService
     @Autowired
-    lateinit var blogItemRepo: BlogItemRepo
+    lateinit var blogRepo: BlogRepo
     @Test
     fun getBlogData() {
         blogService.test()

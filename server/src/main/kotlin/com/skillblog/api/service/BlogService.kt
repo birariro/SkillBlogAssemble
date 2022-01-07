@@ -5,8 +5,7 @@ import com.rometools.rome.feed.synd.SyndFeed
 import com.rometools.rome.io.FeedException
 import com.rometools.rome.io.SyndFeedInput
 import com.rometools.rome.io.XmlReader
-import com.skillblog.api.controller.dto.BlogItemResponse
-import com.skillblog.api.domain.BlogItem
+import com.skillblog.api.domain.blog.BlogEntity
 import org.springframework.stereotype.Service
 import java.io.IOException
 import java.net.URI
@@ -19,9 +18,9 @@ import java.net.http.HttpResponse
 @Service
 class BlogService {
 
-    fun getBlogData(company: String , rssUrl:String) : List<BlogItem>{
+    fun getBlogData(company: String , rssUrl:String) : List<BlogEntity>{
         val rssUrl = rssUrl
-        var result  = mutableListOf<BlogItem>()
+        var result  = mutableListOf<BlogEntity>()
         try {
             val feedUrl = URL(rssUrl)
             val input = SyndFeedInput()
@@ -43,7 +42,7 @@ class BlogService {
                 val imageUrl = getContentsImage(entry.link,entry.contents)
                 //println("imageUrle > "+imageUrl) //이미지
 
-                var blogItem = BlogItem(id = 0L,title = entry.title,description = entry.description.value,
+                var blogEntity = BlogEntity(id = 0L,title = entry.title,description = entry.description.value,
                 author = entry.author,link = entry.link,date = entry.publishedDate,imageLink = imageUrl)
 //                var item = BlogItemResponse(company = company,
 //                        title = entry.title,
@@ -51,7 +50,7 @@ class BlogService {
 //                        author = entry.author,
 //                        link = entry.link,
 //                        data = entry.publishedDate)
-                result.add(blogItem)
+                result.add(blogEntity)
             }
         } catch (e: IllegalArgumentException) {
             // ...

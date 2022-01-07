@@ -1,10 +1,10 @@
-package com.skillblog.api.domain
+package com.skillblog.api.domain.blog
 
 import java.util.*
 import javax.persistence.*
 
 @Entity
-class BlogItem(
+class BlogEntity(
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)

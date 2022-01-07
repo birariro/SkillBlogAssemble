@@ -1,4 +1,4 @@
-package com.skillblog.api.domain
+package com.skillblog.api.domain.rss
 
 import javax.persistence.*
 
