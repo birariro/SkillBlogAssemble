@@ -13,7 +13,7 @@ class RemoteRepository {
             add(
                 BlogItem(
                 "Naver",
-                "지식iN 앱을 Flutter로 개발하는 이유",
+                "지식iN 앱을 Flutter로\n 개발하는 이유",
                 "할만했다" ,
                 Color.parseColor("#0DC75B"),
                 R.drawable.naver,"https://d2.naver.com/helloworld/3384599")
@@ -21,7 +21,7 @@ class RemoteRepository {
 
             add(
                 BlogItem("Coupang",
-                "QA testing for microservices",
+                "QA testing for\n microservices",
                 "왜 영어?" ,
                 Color.parseColor("#A2180B"),
                 R.drawable.coupang,

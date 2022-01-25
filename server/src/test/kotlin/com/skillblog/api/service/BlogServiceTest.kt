@@ -43,7 +43,7 @@ internal class BlogServiceTest {
             println("blogData title = ${blogData.title}")
             println("blogData author = ${blogData.author}")
             println("blogData link = ${blogData.link}")
-            //println("blogData imageLink = ${blogData.imageLink}")
+            println("blogData imageLink = ${blogData.imageLink}")
             println("blogData date= ${blogData.date}")
             println("blogData description len = ${blogData.description.length}")
 
@@ -61,8 +61,8 @@ internal class BlogServiceTest {
             //add(RssEntity(0L,"당근마켓","https://medium.com/feed/daangn"))
             //add(RssEntity(0L,"라인","https://engineering.linecorp.com/ko/feed/"))
             //add(RssEntity(0L,"네이버","https://d2.naver.com/d2.atom"))
-            //add(RssEntity(0L,"이스트소프트","https://blog.est.ai/feed/"))
-            add(RssEntity(0L,"딜리버리 코리아","https://techblog.yogiyo.co.kr/feed"))
+            add(RssEntity(0L,"이스트소프트","https://blog.est.ai/feed/"))
+            //add(RssEntity(0L,"딜리버리 코리아","https://techblog.yogiyo.co.kr/feed"))
 
         }
         return dummy
