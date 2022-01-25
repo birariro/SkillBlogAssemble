@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service
 class ResponseService {
 
     //링크 를 반환하는 메소드
-    fun <T> getSingleHatroasResult(data: T, list: List<HatroasDto>): HatroasResult<T> {
+    fun <T> getSingleResult(data: T, list: List<HatroasDto>): HatroasResult<T> {
         val result = HatroasResult(data,list)
         setSuccessResult(result)
         return result

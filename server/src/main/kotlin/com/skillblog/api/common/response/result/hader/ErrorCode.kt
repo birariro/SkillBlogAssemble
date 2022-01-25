@@ -4,6 +4,7 @@ enum class ErrorCode(var code: Int, var message: String) {
     UNKNOWN(-1,"-1"),
     TIME_OUT(-1,"-2"),
     DB(-1,"-3"),
+    LOGIN_FALUD(-1,"로그인 실패"),
     COMMUNICATION(-1,"-4"),
     CHAR_INVALID(-1,"-5"),
     HASH(-1,"-6"),
