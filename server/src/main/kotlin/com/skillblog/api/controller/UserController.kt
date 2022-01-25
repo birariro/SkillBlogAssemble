@@ -33,7 +33,6 @@ class UserController {
 
         val links = mutableListOf<HatroasDto>().apply {
             add(HatroasDto("home","http://localhost:8080/home"))
-            add(HatroasDto("setting","http://localhost:8080/setting"))
             add(HatroasDto("account","http://localhost:8080/account"))
         }
 

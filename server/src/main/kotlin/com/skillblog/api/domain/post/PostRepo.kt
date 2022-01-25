@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface PostRepo :  JpaRepository<PostEntity,Long>{
+    fun findByCode(code:Int) : List<PostEntity>
 }

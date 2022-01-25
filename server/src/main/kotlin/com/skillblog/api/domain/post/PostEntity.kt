@@ -9,8 +9,12 @@ class PostEntity(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val id: Long,
         @Column(nullable = false)
-        val targetName: String,
+        val company: String,
+        @Column(nullable = false)
+        val code : Int,
         @Column(nullable = false)
         val title: String,
+        @Column(nullable = false)
+        val link: String,
 
 )

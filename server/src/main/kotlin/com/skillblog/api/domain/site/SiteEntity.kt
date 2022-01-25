@@ -8,6 +8,7 @@ import javax.persistence.Id
 class SiteEntity (
        @Id @GeneratedValue
        val id:Long,
+       val code : Int,
        val company:String,
-       val link :String
+       val link:String
 )
