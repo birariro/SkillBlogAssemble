@@ -35,7 +35,8 @@ class PostService {
                 val title = entry.title
                 val link = entry.link
 
-                val postEntity = PostEntity(company = company,code = code, title = title, postLink = link)
+               // val postEntity = PostEntity(company = company,code = code, title = title, postLink = link)
+                val postEntity = PostEntity(title = title, postLink = link)
                 postEntityList.add(postEntity)
 
             }

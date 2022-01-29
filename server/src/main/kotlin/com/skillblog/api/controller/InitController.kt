@@ -46,7 +46,9 @@ class InitController {
             val postList = postService.getPostData(siteEntity.company,siteEntity.code,siteEntity.link)
 
             for (postEntity in postList) {
+
                 siteEntity.addPost(postEntity)
+                postRepo.save(postEntity)
             }
 
             siteRepo.save(siteEntity)

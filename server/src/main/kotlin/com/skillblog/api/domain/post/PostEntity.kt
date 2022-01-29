@@ -6,10 +6,7 @@ import javax.persistence.*
 @Entity
 @Table(name = "post")
 class PostEntity(
-        @Column(nullable = false)
-        val company: String,
-        @Column(nullable = false)
-        val code : Int,
+
         @Column(nullable = false)
         val title: String,
         @Column(nullable = false)

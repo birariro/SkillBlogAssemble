@@ -13,25 +13,25 @@ class PostController {
     @Autowired
     lateinit var postRepo: PostRepo
 
-    @GetMapping("/{codes}")
-    fun findPosts(@PathVariable codes:Array<Int>){
-        for (code in codes) {
-            println("code : $code")
-            val postEntity = postRepo.findByCode(code)
-
-            for (postEntity in postEntity) {
-                println(postEntity.title)
-            }
-        }
-
-    }
-    @GetMapping("/test")
-    fun findPosts1(){
-        val postEntity = postRepo.findByCode(1001)
-        for (postEntity in postEntity) {
-            println(postEntity.title)
-        }
-
-
-    }
+//    @GetMapping("/{codes}")
+//    fun findPosts(@PathVariable codes:Array<Int>){
+//        for (code in codes) {
+//            println("code : $code")
+//            val postEntity = postRepo.findByCode(code)
+//
+//            for (postEntity in postEntity) {
+//                println(postEntity.title)
+//            }
+//        }
+//
+//    }
+//    @GetMapping("/test")
+//    fun findPosts1(){
+//        val postEntity = postRepo.findByCode(1001)
+//        for (postEntity in postEntity) {
+//            println(postEntity.title)
+//        }
+//
+//
+//    }
 }
